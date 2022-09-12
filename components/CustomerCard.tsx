@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useTailwind } from 'tailwind-rn/dist';
 import useCustomerOrders from '../hooks/useCustomerOrders';
 import { CustomerScreenNavigationProp } from '../screens/CustomersScreen';
+
 type Props = {
   userId: string;
   name: string;
@@ -14,7 +15,14 @@ const CustomerCard = ({ email, name, userId }: Props) => {
   const tw = useTailwind();
   const navigation = useNavigation<CustomerScreenNavigationProp>();
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate('MyModal', {
+          name: name,
+          userId: userId,
+        })
+      }
+    >
       <Card containerStyle={tw('p-5 rounded-lg')}>
         <View>
           <View style={tw('flex-row justify-between')}>
