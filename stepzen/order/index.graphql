@@ -21,6 +21,11 @@ type OrderList {
   value: Order
 }
 type Query {
+  #we need transform for if we return array
+  getOrderById(id: ID): Order
+    @rest(
+      endpoint: "https://ups-delivery-tracking-default-rtdb.firebaseio.com/orders/$id.json"
+    )
   getOrders: [OrderList]
     @rest(
       endpoint: "https://ups-delivery-tracking-default-rtdb.firebaseio.com/orders.json"
