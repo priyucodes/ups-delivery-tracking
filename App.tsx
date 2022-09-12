@@ -6,8 +6,12 @@ import RootNavigator from './navigator/RootNavigator';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5001/api/loitering-bunny',
+  uri: process.env.APOLLO_CLIENT_URI, // check ntoe.txt for more info abt dotenv
+
   cache: new InMemoryCache(),
+  // headers: {
+  //   Authorization: `Apikey ${process.env.TEPZEN_API_KEY}`,
+  // },
 });
 
 export default function App() {
