@@ -6,12 +6,13 @@ import RootNavigator from './navigator/RootNavigator';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: process.env.APOLLO_CLIENT_URI, // check ntoe.txt for more info abt dotenv
-
+  // development mode  uri: process.env.APOLLO_CLIENT_DEV_URI, // check ntoe.txt for more info abt dotenv
+  // production mode
+  uri: process.env.APOLLO_CLIENT_PROD_URI,
   cache: new InMemoryCache(),
-  // headers: {
-  //   Authorization: `Apikey ${process.env.TEPZEN_API_KEY}`,
-  // },
+  headers: {
+    Authorization: `apikey ${process.env.STEPZEN_API_KEY}`,
+  },
 });
 
 export default function App() {
