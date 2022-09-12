@@ -9,7 +9,7 @@ export type RootStackParamList = {
     userId: string;
     name: string;
   };
-  Order: { order: any };
+  Order: { order: Order };
 };
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 const RootNavigator = () => {

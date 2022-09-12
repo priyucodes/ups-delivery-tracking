@@ -14,8 +14,6 @@ import { useLayoutEffect, useState } from 'react';
 import { Button, Image } from '@rneui/themed';
 import OrderCard from '../components/OrderCard';
 
-type OrderScreenRouteProp = RouteProp<RootStackParamList, 'Order'>;
-
 export type OrdersScreenNavigationProp = CompositeNavigationProp<
   BottomTabNavigationProp<TabStackParamList, 'Orders'>,
   NativeStackNavigationProp<RootStackParamList>
